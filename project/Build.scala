@@ -14,7 +14,7 @@ object SbtScalaParseBuild extends Build {
       description := "sbt plugin for better parse errors using @lihaoyi's ScalaParse",
       organization := "org.cvogt",
       name := "sbt-scalaparse",
-      version in ThisBuild := "0.1",
+      version in ThisBuild := "0.2",
       libraryDependencies ++= Seq(
         "com.lihaoyi" %% "scalaparse" % "0.2.1"
       ),

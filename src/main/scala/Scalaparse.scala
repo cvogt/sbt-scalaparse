@@ -35,15 +35,16 @@ private object Scalaparse {
       i => code.indexOf("\n",i+1)
     ).take(100000).takeWhile(_ != -1).toVector
     
-    val lineBreakShowFrom = lineBreaks.takeWhile(_ < pos).dropRight(1).last
     val lineBreaksBefore = lineBreaks.takeWhile(_ < pos)
     val lineBreakBefore = lineBreaksBefore.last
-    val lineBreakAfter = lineBreaks.dropWhile(_ < pos).head
-    
+    val line = code.drop( lineBreaksBefore.last + 1 ).takeWhile( _ != '\n' )
+
+    println(s""" '$line' """)
+
     (
-      file ++ ":" ++ (lineBreaksBefore.size + 1).toString ++ ": ScalaParse error"
+      file ++ ":" ++ (lineBreaksBefore.size + 1).toString ++ ": ScalaParse error" ++ "\n"
       ++
-      code.substring( lineBreakShowFrom, lineBreakAfter ) ++ "\n"
+      line ++ "\n"
       ++
       (" " * (pos - lineBreakBefore - 1)) ++ "^"
     )    
