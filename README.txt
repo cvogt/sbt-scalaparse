@@ -3,7 +3,7 @@ sbt plugin to run @lihaoyi's ScalaParse
 Why? Much better and faster parse errors than Scalac.
 
 Install
-addSbtPlugin("org.cvogt" % "sbt-scalaparse" % "0.1")
+addSbtPlugin("org.cvogt" % "sbt-scalaparse" % "0.2")
 
 Usage
 sbt> parse
